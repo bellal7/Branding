@@ -1,0 +1,128 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="format-detection" content="telephone=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+<script src="http://localhost/application/assets/common/js/jquery-1.12.4.min.js"></script>
+<script src="http://localhost/application/assets/common/js/jquery-ui.js"></script>
+<script src="http://localhost/application/assets/common/js/common.js"></script>
+<script src="http://localhost/application/assets/common/js/swiper-bundle.min.js"></script><!--이미지슬라이더-->
+<link rel="stylesheet" type="text/css" href="http://localhost/application/assets/css/styles.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/application/assets/common/css/jquery-ui.css">
+<link rel="stylesheet" type="text/css" href="http://localhost/application/assets/common/css/swiper-bundle.min.css">
+<body>
+  <header class="head">
+    <a class="logo" href="/front/Main">
+      <img src="http://localhost/application/assets/img/logo.png" alt="logo">
+    </a>
+    <div class="branch">
+      <a href="#" class="com_btn green oval m">화곡점</a>
+      <a href="#" class="com_btn yellow oval m">마곡점</a>
+    </div>
+    <div class="gnb_container">
+      <section class="gnb_top">
+        <div class="branch">
+          <a href="#" class="com_btn green oval m">화곡점</a>
+          <a href="#" class="com_btn yellow oval m">마곡점</a>
+        </div>
+        <a href="#" class="icon_blog"><img src="http://localhost/application/assets/img/icon_blog.png" alt="blog"></a>   
+        <button class="btn_close BtnGnbClose"><img src="http://localhost/application/assets/img/icon_del.png" alt="close"></button>
+      </section>
+      <ul class="gnb">
+        <li class="depth1">
+          <a href="#" class="menu GnbMenu">해빛소개</a>
+        </li>
+        <li class="depth1">
+          <a href="#" class="menu GnbMenu">언어상담</a>
+        </li>
+        <li class="depth1">
+          <a href="#" class="menu GnbMenu">아동청소년심리상담</a>
+        </li>
+        <li class="depth1">
+          <a href="#" class="menu GnbMenu">치료프로그램</a>
+        </li>
+        <li class="depth1">
+          <a href="#" class="menu GnbMenu">검사프로그램</a>
+        </li>
+        <li class="depth1">
+          <a href="#" class="menu GnbMenu">상담절차&예약</a>
+        </li>
+        <li class="depth1">
+          <a href="#" class="menu GnbMenu icon_blog"><img src="http://localhost/application/assets/img/icon_blog.png" alt="blog"></a>
+        </li>
+      </ul>
+    </div>
+    <i class="bg_close"></i>
+    <a class="link com_mobile btn_bar BtnBar" href="#"></a>
+  </header>
+<script>
+  $(function(){
+    $(".BtnBar").click(function() { //gnb 열기
+      $(".gnb_container").addClass("active")
+      $('html').addClass("scroll_lock")
+    })
+    $(".BtnGnbClose").click(function() { //gnb 닫기
+      $(".gnb_container").removeClass("active")
+      $('html').removeClass("scroll_lock")
+    })
+  })
+</script><main class="p_main">
+  <section class="sec_visual">
+    <div class="com_center_wrap">
+      <h2 class="title">
+        <img src="http://localhost/application/assets/img/visual_logo.png" alt="해처럼 빛나게!">
+      </h2>
+      <p class="sub_title">
+        해빛은 부모의 마음과 같은 사랑과 정성으로 <br />아이들과 함께하고 있습니다.
+      </p>
+      <button class="btn_scroll">
+        <img src="http://localhost/application/assets/img/icon_scroll.png" alt="scroll">
+      </button>
+    </div>
+  </section>
+</main>
+
+  <footer class="footer">
+    <div class="footer_top">
+      <div class="com_center_wrap">
+        <div class="footer_left">
+          <p class="footer_tit">해빛은 언제나<br />기다리고 있습니다</p>
+          <b class="tel">02. 2606. 1175</b>
+          <p class="txt">해빛아동청소년발달센터</p>
+        </div>
+        <div class="footer_right">
+          <span class="txt">운영시간</span>
+          <div class="date">
+            <p>월 - 금 : am 10:00 - pm 08:00 </p>
+            <p>토요일 : am 09:00 - pm 04:00</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer_bottom">
+      <div class="com_center_wrap">        
+        <section class="info">
+          <address>
+            <span class="tit bar">화곡점</span>
+            <div class="address">
+              <p class="txt">서울특별시 강서구 강서로 210, 401호 6층(화곡동, 삼광빌딩) <b class="tel">02.2606.1175</b></p>
+              <p class="txt"><span class="info_txt">대표자 : 김드롱</span><span class="info_txt">사업자등록번호 : 450-92-00423</span></p>
+            </div>  
+          </address>
+          <address>
+            <span class="tit bar">마곡점</span>
+            <div class="address">
+              <p class="txt">서울특별시 강서구 마곡중앙1로 26, 501호~504호(마곡동, 엠리체)<b class="tel">02.2665.1175</b></p>
+              <p class="txt"><span class="info_txt">대표자 : 김드롱</span><span class="info_txt">사업자등록번호 : 204-95-08503</span></p>
+            </div>  
+          </address>
+          <p class="copy">Copyright © habit. All rights reserved.</p>
+        </section>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
