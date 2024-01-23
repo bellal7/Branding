@@ -17,10 +17,7 @@
     @content;
   }
 }
-@mixin beforeafter{
-  content: '';
-  display: inline-block;
-}
+
 //! 단독 사용하지 않음. Don't use alone
 @mixin flex-align($align) {
 	@if ($align == "x") {
@@ -114,6 +111,10 @@
 	}
 }
 
+@mixin beforeafter{
+  content: '';
+  display: inline-block;
+}
 //^ 텍스트 분할선 (가로, 세로, 양쪽여백) Text divider
 @mixin divider($w, $h, $side-mg) {
   position: relative;
@@ -143,7 +144,7 @@
 }
 
 //^ 이미지 리스트 정렬 (얖옆 여백-아이템과 아이템사이를 반으로 나눈 수, 한줄에 들어갈 아이템 수, 두번째 줄부터 상단에 넣을 여백)
-@mixin list($mg, $i, $mgtop: 0) {// $mg = item gap / 2 , $i = Number of items in one line, $mgtop = Margin to be added to the top starting from the second line 
+@mixin list($mg, $i, $mgtop: 0) {
   display: flex;
   flex-wrap: wrap;
   @if ($i == 1) {
@@ -158,8 +159,7 @@
   > article,
   > section,
   > figure,
-  > button,
-  > a {
+  > .com_btn {
   @if ($i == 1) {
     width: 100%;
   } @else if ($i == 2) {
@@ -181,7 +181,7 @@
   }
 }
 
-@mixin thumb($w,$h) {//영역에 꽉찬 이미지 ex)thumbnail ,profile image
+@mixin thumb($w,$h,$fit:contain,$ratio:auto) {//영역에 꽉찬 이미지 ex)thumbnail ,profile image
 	overflow: hidden;
   display: flex;
   justify-content: center;
@@ -189,8 +189,9 @@
   width: $w;
   height: $h;
   min-width: $w;
+  aspect-ratio:$ratio;
   img{
-    object-fit: cover;
+    object-fit: $fit;
     min-height: 100%;
     min-width: 100%;
     max-height: 100%;
@@ -204,7 +205,7 @@
   background-position: center;
   background-size: $size;
   background-repeat: no-repeat;
-  background-image: url(../img/#{$img}.png);
+  background-image: url(../img/#{$img});
   width: #{$w}px;
   height: #{$h}px;
 }
@@ -217,29 +218,8 @@
   line-height: $height;
   background-color: $bgColor;
   color: $color;
-  display: inline-block;
 }
 
-@mixin css3-prefix($property, $value) {
-  -webkit-#{$property}: #{$value};
-  -khtml-#{$property}: #{$value};
-  -moz-#{$property}: #{$value};
-  -ms-#{$property}: #{$value};
-  -o-#{$property}: #{$value};
-  #{$property}: #{$value};
-}
-@mixin border-radius($radius: 5px) {
-  @include css3-prefix("border-radius", $radius);
-}
-// ellipsis
-@mixin multi-ellipsis($line) {
-	display: block;
-	display: -webkit-box;
-	overflow: hidden;
-	-webkit-line-clamp: $line;
-	-webkit-box-orient: vertical;
-	text-overflow: ellipsis;
-}
 // arrow
 @mixin addArrow($w,$h,$color,$direction){
   @include beforeafter;
@@ -262,10 +242,81 @@
   }
 }
 
+@mixin css3-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+  -khtml-#{$property}: #{$value};
+  -moz-#{$property}: #{$value};
+  -ms-#{$property}: #{$value};
+  -o-#{$property}: #{$value};
+  #{$property}: #{$value};
+}
+@mixin border-radius($radius: 5px) {
+  @include css3-prefix("border-radius", $radius);
+}
+// ellipsis
+@mixin multi-ellipsis($line) {
+	display: block;
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+	text-overflow: ellipsis;
+}
+
+//scroll style
+@mixin scroll($max-height,$x,$y){//최대높이, 가로스크롤생성여부, 세로스크롤생성여부
+  max-height:$max-height;
+  overflow-x: $x;
+  overflow-y: $y;
+  scrollbar-face-color: transparent;    /*스크롤*/
+  scrollbar-highlight-color: #e2e8f0;    /*하이라이트*/
+  scrollbar-3dlight-color: transparent;    /*왼쪽외곽음영*/
+  scrollbar-darkshadow-color: transparent;    /*오른쪽외곽음영*/
+  scrollbar-shadow-color: transparent;    /*오른쪽 안쪽음영*/
+  scrollbar-arrow-color: transparent;    /*화살*/
+  scrollbar-track-color:transparent;    /*스크롤영역*/    
+  &::-webkit-scrollbar {/*스크롤바*/
+    //opacity: 0;
+    width: 5px;
+    height: 5px;
+  }    
+  &::-webkit-scrollbar-button {/*스크롤바 버튼(아래 위 화살표)*/
+    width: 0px;
+    height: 0px;
+  }    
+  &::-webkit-scrollbar-thumb {/*스크롤바 핸들*/
+    background-color: #e2e8f0;
+    background-clip: padding-box;
+    border-radius: 5px;
+  }    
+  &::-webkit-scrollbar-track {/*스크롤바 진행줄*/
+    background-color: none;
+  }    
+  &::-webkit-scrollbar-track-piece {/*진행줄에서 핸들로 덮이지 않은 영역 */
+    background-color:none;
+  }    
+  &::-webkit-scrollbar-corner {
+    // background: #fff;
+  }
+  &:hover{
+    &::-webkit-scrollbar-thumb { 
+      background-color: $darkGray;
+    }
+  }
+}
+
+@mixin duration($speed: 0.4s){//반응속도
+  -webkit-transition-duration:$speed;  
+  -moz-transition-duration:$speed;  
+  -o-transition-duration:$speed;  
+  -ms-transition-duration:$speed;  
+  transition-duration:$speed;
+}
+
 //* 변수 목록
 
 // device-size
-$devices: (full:1920px, xxl:1599.9px, xl:1300px, l:1023.9px, m:767.9px, s:639.9px, xs:575.9px, xxs:429.9px, mini:319.9px);
+$devices: (full:1920px, xxl:1599.9px, xl:1300px, l:1023.9px, m:767.9px, s:639.9px, xs:575.9px, xxs:359.9px, mini:319.9px);
 $full: map-get($devices, full); //디자인 시안 최대 크기
 $xxl: map-get($devices, xxl); //full이 너무 커서(1900이상) breakpoint가 추가로 필요할 경우
 $xl: map-get($devices, xl);
@@ -276,25 +327,31 @@ $xs: map-get($devices, xs);
 $xxs: map-get($devices, xxs);
 $mini: map-get($devices, mini);
 
-$max-w:1920px;
 // margin
-$pd-inline:25px;
-$pd-inline-m:15px;
-%pd-inline {
-  padding-inline: 25px;
-  // @include media-max($xxs){
-  //   padding-inline: 15px;
-  // }
-}
-$pd-main:40px;
+$pd-inline:32px;
+$max-w:820px;
+$m-head:55px;// 현 사이트 디자인으로 수정 가능, 수정 후 주석 
 
 // font
-$font-default: 'Pretendard', sans-serif; //기본 폰트 스타일 Default font-family
-$fc-default: #333; //Font default color
+$font-default: 'Noto Sans', 'NotoSansKR', sans-serif; //기본 폰트 스타일 Default font-family
+$fc-default: #4B4841; //Font default color 
 
 // color
-//$black: #222;
-$point: #bfd45d;
+$bg:#f0f4f5;
+$point: #167843;
+// $red:#FF402B;
+// $orange:#F2692D;
+// $gray: #828282;
+// $lightGray: #e5e8e9;
+$darkGray: #4C5055;
+//$white: #fff;
+$blue:#0A97FF;
+$bgGray:#F0F4F5;
+// $lightPoint:#D3EBDE;
+
+$c-border:#9A9A9A;
+$c-border-lightPoint:#A7D8BE;
+
 $pointBg:#ecf6f1;
 $lightPoint:#54ac82;
 $gray: #51585f;

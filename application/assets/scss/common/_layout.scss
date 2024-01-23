@@ -2,35 +2,259 @@
 .scroll_lock {
   overflow: hidden;
 }
-.head {    
+// .head {    
+//   position: relative;
+//   z-index: 2;
+//   @include flex(y);
+//   width: 100%;
+//   padding: 15px 130px;
+//   height: $h-head-pc;
+//   background: linear-gradient(to top, rgba(255,255,255,0.3), rgba(0,0,0,0.04));
+//   &.fixed {
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     padding: 7px 30px;
+//     height: $h-head-pc;
+//     z-index: 3;
+//     background: #fff;
+//     animation: smoothScroll .5s forwards;
+//     @include media-max($xl) {
+//       padding: 7px $pd-inline;
+//       height: $h-head-m;
+//     }
+//     .logo {
+//       img {
+//         max-width: 65px;
+//         @include media-max($xl) {
+//           max-width: 50px;
+//         }
+//       }
+//     }
+//   }
+//   @keyframes smoothScroll {
+//     0% {
+//       transform: translateY(-20px);
+//     }
+//     100% {
+//       transform: translateY(0px);
+//     }
+//   }
+//   @include media-max($xxl) {
+//     padding-inline: $pd-inline;
+//   }
+//   @include media-max($xl) {
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     padding: 7px $pd-inline;
+//     height: $h-head-m;
+//     z-index: 101;
+//     &+main{
+//       padding-top: $h-head-m;
+//     }
+//   }
+//   .logo {
+//     width: 266px;
+//     margin-right: 60px;
+//     @include media-max($m) {
+//       width: 180px;
+//       margin-right: 20px;
+//     }
+//   }
+//   .branch {
+//     @include flex(y);
+//     gap: 0;
+//     @include media-max($m) {
+//       margin-right: 10px;
+//       display: none;
+//     }
+//     .com_btn {
+//       width: 100px;
+//       @include media-max($xl) {
+//         width: 60px;
+//         height: 30px;
+//         font-size: 14px;
+//       }
+//     }
+//   }
+//   .link_wrap {
+//     display: flex;
+//     justify-content: flex-end;
+//     align-items: center;
+//     .link {
+//       margin-left: 20px;
+//       position: relative;
+//       @include media-max($xl) {
+//         margin-left:10px;
+//       }
+//       img {
+//         width: 30px;
+//         min-width: 30px;
+//         @include media-max($xl) {
+//           width:24px;
+//           min-width: 24px;
+//         }
+//       }
+//       .notice {
+//         width: 5px;
+//         height: 5px;
+//         background-color: $point;
+//         border-radius: 100%;
+//         position: absolute;
+//         right: 0;
+//         top: 0;
+//       }
+//     }
+//   }
+//   .gnb_container {
+//     @include flex(y);
+//     margin-left: auto;
+//     @include media-max($xl) {
+//       display: none;
+//       &.active{
+//         display: block;
+//         right: 0;
+//         top: 0;
+//         position: fixed;
+//         width: 80%;
+//         height: 100%;
+//         background: #f3f7fa;
+//         z-index: 3;
+//         & + .bg_close {//bg클릭시 팝업이 닫히게 하기위함
+//           position: fixed;
+//           width: 100%;
+//           height: 100vh;
+//           top: 0;
+//           left: 0;
+//           z-index: 2;
+//           background-color: rgba(0, 0, 0, 0.7);
+//         }
+//       }
+//     }
+//     .gnb_top{ 
+//       display: none;
+//       @include media-max($xl) {
+//         display: flex;
+//         align-items: center;
+//         background: #fff;
+//         border-bottom: 2px solid $point;
+//         height: $h-head-m;
+//         padding: 20px $pd-inline 20px calc(#{$pd-inline} + 10px);
+//         .btn_close {
+//           margin-left: auto;
+//           img {
+//             width: 16px;
+//           }
+//         }
+//         .branch {
+//           display: flex;
+//         }
+//       }
+//     }
+//   }
+//   //&gnb
+//   .gnb {
+//     display: flex;
+//     align-items: center;
+//     @include media-max($xl) {
+//       display: block;
+//       overflow-y: auto;
+//       max-height: calc(100vh - 72px);
+//     }
+//     .depth1 {
+//       margin-inline: 20px;
+//       @include media-max($xl) {
+//         margin: 0;
+//       }
+//       .menu {
+//         font-size: 16px;
+//         font-weight: bold;
+//         line-height: 1.18;
+//         letter-spacing: -0.55px;
+//         color: #fff;
+//         &.active,
+//         &:hover {
+//           color: $point
+//         }
+//         @include media-max($xl) {
+//           width: 100%;
+//           padding-inline:calc(#{$pd-inline} + 10px) $pd-inline;
+//           padding-block: 17px;
+//           border-bottom: 1px solid #e8ecef;
+//           font-size: 16px;
+//           font-weight: bold;
+//           line-height: 1.17;
+//           letter-spacing: -0.45px;
+//           text-align: left;
+//           color: $fc-default;
+//           background: url(../img/arrow_right.png) no-repeat;
+//           background-position:calc(100% - #{$pd-inline}) center;
+//           background-size: 22px;
+//         }
+//       }
+//       .icon_blog {
+//         @include media-max($xl) {
+//           display: none;
+//         }
+//       }
+//     } 
+//   }
+//   .btn_bar{
+//     display: none;
+//     background: url("../img/icon_bar.png") no-repeat;
+//     background-size: contain;
+//     background-position: center;
+//     width:20px;
+//     height:14px;
+//     @include media-max($xl) {
+//       display: block;
+//       margin-left: auto;
+//     }
+//   }
+//   .icon_blog {
+//     width: 50px;
+//     @include media-max($xl) {
+//       width: 30px;
+//     }
+//   }
+//   &.active{
+//     .btn_bar{
+//       background-image: url("../img/icon_del.png");
+//     }
+//     .gnb{
+//       &_container{
+//         display: flex;
+//         position: fixed;
+//         z-index: 11;
+//       }
+//     }
+//   }
+// }
+
+.com_center_wrap{
+  margin-inline: auto;
+  width:$max-w; 
+  @include media-max($l){
+    width:100%;
+    padding-inline: $pd-inline;
+  }
+}
+
+.head{
   position: relative;
   z-index: 2;
   @include flex(y);
   width: 100%;
-  padding: 15px 130px;
-  height: $h-head-pc;
-  background: linear-gradient(to top, rgba(255,255,255,0.3), rgba(0,0,0,0.04));
+  padding-block: 15px;
+  // background: linear-gradient(to top, rgba(255,255,255,0.3), rgba(0,0,0,0.04));
   &.fixed {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 7px 30px;
-    height: $h-head-pc;
+    padding: 10px 0px;
     z-index: 3;
-    background: #fff;
     animation: smoothScroll .5s forwards;
-    @include media-max($xl) {
-      padding: 7px $pd-inline;
-      height: $h-head-m;
-    }
-    .logo {
-      img {
-        max-width: 65px;
-        @include media-max($xl) {
-          max-width: 50px;
-        }
-      }
-    }
   }
   @keyframes smoothScroll {
     0% {
@@ -38,20 +262,6 @@
     }
     100% {
       transform: translateY(0px);
-    }
-  }
-  @include media-max($xxl) {
-    padding-inline: $pd-inline;
-  }
-  @include media-max($xl) {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 7px $pd-inline;
-    height: $h-head-m;
-    z-index: 101;
-    &+main{
-      padding-top: $h-head-m;
     }
   }
   .logo {
@@ -62,175 +272,293 @@
       margin-right: 20px;
     }
   }
-  .branch {
-    @include flex(y);
-    gap: 0;
-    @include media-max($m) {
-      margin-right: 10px;
-      display: none;
-    }
-    .com_btn {
-      width: 100px;
-      @include media-max($xl) {
-        width: 60px;
-        height: 30px;
-        font-size: 14px;
-      }
-    }
+  @include media-max($m){
+    padding-block:13px;
   }
-  .link_wrap {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    .link {
-      margin-left: 20px;
-      position: relative;
-      @include media-max($xl) {
-        margin-left:10px;
-      }
-      img {
-        width: 30px;
-        min-width: 30px;
-        @include media-max($xl) {
-          width:24px;
-          min-width: 24px;
-        }
-      }
-      .notice {
-        width: 5px;
-        height: 5px;
-        background-color: $point;
-        border-radius: 100%;
-        position: absolute;
-        right: 0;
-        top: 0;
-      }
+  .com_center_wrap{
+    width:1186px;
+    @include media-max($xl){
+      width:100%;
+      padding-inline: $pd-inline;
     }
-  }
-  .gnb_container {
-    @include flex(y);
-    margin-left: auto;
-    @include media-max($xl) {
+    @include flex(between);
+    .btn_bar{
       display: none;
-      &.active{
+      @include media-max($m){
         display: block;
-        right: 0;
-        top: 0;
-        position: fixed;
-        width: 80%;
-        height: 100%;
-        background: #f3f7fa;
-        z-index: 3;
-        & + .bg_close {//bg클릭시 팝업이 닫히게 하기위함
-          position: fixed;
-          width: 100%;
-          height: 100vh;
-          top: 0;
-          left: 0;
-          z-index: 2;
-          background-color: rgba(0, 0, 0, 0.7);
-        }
       }
     }
-    .gnb_top{ 
-      display: none;
-      @include media-max($xl) {
-        display: flex;
-        align-items: center;
-        background: #fff;
-        border-bottom: 2px solid $point;
-        height: $h-head-m;
-        padding: 20px $pd-inline 20px calc(#{$pd-inline} + 10px);
-        .btn_close {
-          margin-left: auto;
-          img {
-            width: 16px;
+    .gnb_wrap{
+      .logo{
+        display: none;
+      }
+      .btn_close{
+        display: none;
+        @include media-max($m){
+          display: block
+        }
+      }
+      .gnb{
+        @include flex(y);
+        @include flex(right);
+        gap:63px;
+        & :is(.depth2,.depth3){
+          display: none ;
+          @include media-min($m){
+            display: none !important;
           }
         }
-        .branch {
-          display: flex;
+        .depth1{
+          position: relative;
+          &>.menu{
+            font-size:18px;
+            padding-bottom:4px;
+            border-bottom:1px solid transparent;
+            color: #fff;
+          }
+          .depth2{
+            position:absolute;
+            padding-top:5px;
+            & > li > .menu{
+              line-height: 34px;
+              font-size:18px;
+              white-space: nowrap;
+              color: #fff;
+            }
+          }
+          .menu_open{display: none;}
+          @include media-min($m){
+            &:hover{
+              & > .menu{
+                border-color:$c-border;
+                color: #fff;
+              }
+              .depth2{
+                display: block !important;
+              }
+            }
+          }
         }
       }
-    }
-  }
-  //&gnb
-  .gnb {
-    display: flex;
-    align-items: center;
-    @include media-max($xl) {
-      display: block;
-      overflow-y: auto;
-      max-height: calc(100vh - 72px);
-    }
-    .depth1 {
-      margin-inline: 20px;
-      @include media-max($xl) {
-        margin: 0;
-      }
-      .menu {
-        font-size: 16px;
-        font-weight: bold;
-        line-height: 1.18;
-        letter-spacing: -0.55px;
-        color: #fff;
-        &.active,
-        &:hover {
-          color: $point
-        }
-        @include media-max($xl) {
-          width: 100%;
-          padding-inline:calc(#{$pd-inline} + 10px) $pd-inline;
-          padding-block: 17px;
-          border-bottom: 1px solid #e8ecef;
-          font-size: 16px;
-          font-weight: bold;
-          line-height: 1.17;
-          letter-spacing: -0.45px;
-          text-align: left;
-          color: $fc-default;
-          background: url(../img/arrow_right.png) no-repeat;
-          background-position:calc(100% - #{$pd-inline}) center;
-          background-size: 22px;
+      &.active {
+        .gnb {
+          .depth2 {
+            > li {
+              .menu {
+                display: block;
+                color: $fc-default;
+              }
+            }
+          }
         }
       }
+      @include media-max($m){
+        top:0;
+        left:-200%;
+        width:100vw;
+        height: 100vh;
+        position:fixed;
+        @include duration(0.2s);   
+        .btn_close{
+          position: absolute;
+          top:24px;
+          left:18px;
+          width: 20px;
+        }
+        .logo{
+          position:fixed;
+          top:0; left:55px;
+          z-index: 3;
+          width:calc(100% - 55px);
+          padding:13px 30px;
+          background: #fff;          
+        }
+        &.active{
+          left:0;
+          background: rgba(0,0,0,.7);
+          position:absolute;
+          @include duration(0.2s);   
+          .logo{
+            display: block;
+          }
+          .gnb{
+            padding:106px 30px 30px;
+            position:absolute;
+            right:0;
+            top:0;
+            height: 100vh;
+            background: #fff;
+            width:calc(100% - 55px);
+            @include flex(column);
+            @include flex(left);
+            align-items:flex-start;
+            gap:35px;
+            @include scroll(100vh,visible,auto);
+            z-index: 2;
+            .depth1{
+              width:100%;
+              @include flex(between);
+              @include flex-wrap;
+              .menu {
+                color: $fc-default;
+              }
+              .menu_open{
+                display: block;
+                @include duration;
+                &.active{
+                  transform: rotate(180deg);
+                  @include duration;
+                }
+              }
+            }
+            .depth2{
+              position:relative;
+              width: 100%;
+              text-align: left;
+              & li > .menu{
+                font-size:16px;
+              }
+              & > li > .menu{
+                &:before{
+                  content: '-';
+                  display: inline-block;
+                  margin-right: 5px;
+                }
+              }
+              .depth3{
+                display: block;
+                .menu{
+                  margin-left:5px;
+                  @include dot(3px,3px,5px,#d9d9d9);
+                  line-height: 40px;
+                }
+              }
+            }
+          }
+        }
+      }
+      
       .icon_blog {
+        width: 40px;
         @include media-max($xl) {
-          display: none;
+          width: 30px;
         }
-      }
-    } 
-  }
-  .btn_bar{
-    display: none;
-    background: url("../img/icon_bar.png") no-repeat;
-    background-size: contain;
-    background-position: center;
-    width:20px;
-    height:14px;
-    @include media-max($xl) {
-      display: block;
-      margin-left: auto;
-    }
-  }
-  .icon_blog {
-    width: 50px;
-    @include media-max($xl) {
-      width: 30px;
-    }
-  }
-  &.active{
-    .btn_bar{
-      background-image: url("../img/icon_del.png");
-    }
-    .gnb{
-      &_container{
-        display: flex;
-        position: fixed;
-        z-index: 11;
       }
     }
   }
 }
+// .footer{
+//   margin-top:28px;
+//   .link_sec{
+//     @include flex(all);
+//     gap:10px 22px;
+//     font-size:12px;
+//     @include media-max($m){
+//       @include flex-wrap;
+//       font-size:14px;
+//     }
+//   }
+//   .address{
+//     font-size:12px;
+//     @include flex(all);
+//     @include flex-wrap;
+//     gap:10px 13px;
+//     margin-top:16px;
+//     text-align: center;
+//     color:#2B2D2F;
+//     opacity: 0.5;
+//     @include media-max($m){
+//       margin-top:30px;
+//       gap:0 10px;
+//       line-height: 20px;
+//     }
+//   }
+//   .app_sec{
+//     padding-block:43px;
+//     @include flex(all);
+//     gap:10px;
+//     .btn{
+//       width: 150px;
+//       height: 50px;    
+//       border-radius: 40px;
+//       border: 1px solid #DFDFDF;
+//       background: #FFF; 
+//       overflow: hidden;
+//       text-align: left;
+//       font-size:10px;
+//       color:#959697;
+//       b{font-size:12px;}
+//       img{
+//         width:21px;
+//         float: left;
+//         margin:2px 8px 0 15px;
+
+//       }
+//     }
+//   }
+// }
+// .quick_menu{
+//   position:fixed;
+//   bottom:234px;
+//   right:111px;
+//   width:61px;
+//   z-index: 10;
+//   @include media-max($m){
+//     display: none;
+//   }
+//   .btn{
+//     font-size:0;
+//     width:61px;
+//     height: 53px;
+//     @include flex(all);
+//     flex-wrap: wrap;
+//     margin-bottom:3px;
+//     &:after{
+//       @include beforeafter;
+//       width:61px;
+//       height: 53px;
+//       position:absolute;
+//       z-index: 2;
+//       right:0;
+//     }
+//     &:before{
+//       @include addImg(none,24,24,contain);
+//       margin-left:8px;
+//       z-index: 3;
+//       position: relative;
+//     }
+//     &.time{
+//       &:after{
+//         @include svg-icon-color("quick", "1089AF");
+//       }      
+//       &:before{
+//         @include svg-icon-color("icon_time", "fff");
+//       }
+//     }
+//     &.calendar{
+//       &:after{
+//         @include svg-icon-color("quick", "167843");
+//         transform: rotate(-45deg);
+//         margin-right:-1px;
+//       }
+//       &:before{
+//         @include svg-icon-color("icon_calendar", "fff");
+//         margin-bottom:7px
+//       }
+//     }
+//     &.map{
+//       &:after{
+//         @include svg-icon-color("quick", "E2E2E2");
+//         transform: rotate(-90deg);
+//         right:-4px;
+//       }
+//       &:before{
+//         @include svg-icon-color("icon_map", "3E3A39");
+//         margin-bottom:8px;
+//       }
+//     }
+//   }
+// }
 
 //!!footer
 .footer {
@@ -322,11 +650,11 @@
   }
 }
 
-.com_center_wrap {
-  max-width: $max-w;
-  margin-inline:auto;
-  @extend %pd-inline;
-}
+// .com_center_wrap {
+//   max-width: $max-w;
+//   margin-inline:auto;
+//   @extend %pd-inline;
+// }
 
 .com_divider{
   background: $c-border;

@@ -9,25 +9,19 @@
 <script src="https://bellal7.github.io/Branding/application/assets/common/js/jquery-1.12.4.min.js"></script>
 <script src="https://bellal7.github.io/Branding/application/assets/common/js/jquery-ui.js"></script>
 <script src="https://bellal7.github.io/Branding/application/assets/common/js/common.js"></script>
-<script src="https://bellal7.github.io/Branding/application/assets/common/js/swiper-bundle.min.js"></script><!--이미지슬라이더-->
-<link rel="stylesheet" type="text/css" href="https://bellal7.github.io/Branding/application/assets/css/styles.css">
+<script src="https://bellal7.github.io/Branding/application/assets/common/js/swiper-bundle.min.js"></script>
 <link rel="stylesheet" type="text/css" href="https://bellal7.github.io/Branding/application/assets/common/css/jquery-ui.css">
 <link rel="stylesheet" type="text/css" href="https://bellal7.github.io/Branding/application/assets/common/css/swiper-bundle.min.css">
+<!-- <link rel="stylesheet" type="text/css" href="https://bellal7.github.io/Branding/application/assets/css/styles.css"> -->
+<link rel="stylesheet" type="text/css" href="http://localhost/application/assets/css/styles.css">
+<title>해빛 아동청소년발달센터</title>
 <body>
-  <header class="head">
+  <!-- <header class="head">
     <a class="logo" href="/front/Main">
       <img src="https://bellal7.github.io/Branding/application/assets/img/logo.png" alt="logo">
     </a>
-    <div class="branch">
-      <a href="#" class="com_btn green oval m">화곡점</a>
-      <a href="#" class="com_btn yellow oval m">마곡점</a>
-    </div>
     <div class="gnb_container">
       <section class="gnb_top">
-        <div class="branch">
-          <a href="#" class="com_btn green oval m">화곡점</a>
-          <a href="#" class="com_btn yellow oval m">마곡점</a>
-        </div>
         <a href="#" class="icon_blog"><img src="https://bellal7.github.io/Branding/application/assets/img/icon_blog.png" alt="blog"></a>   
         <button class="btn_close BtnGnbClose"><img src="https://bellal7.github.io/Branding/application/assets/img/icon_del.png" alt="close"></button>
       </section>
@@ -58,32 +52,94 @@
     <i class="bg_close"></i>
     <a class="link com_mobile btn_bar BtnBar" href="#"></a>
   </header>
-<script>
-  $(function(){
-    $(".BtnBar").click(function() { //gnb 열기
-      $(".gnb_container").addClass("active")
-      $('html').addClass("scroll_lock")
+  <script>
+    $(function(){
+      $(".BtnBar").click(function() { //gnb 열기
+        $(".gnb_container").addClass("active")
+        $('html').addClass("scroll_lock")
+      })
+      $(".BtnGnbClose").click(function() { //gnb 닫기
+        $(".gnb_container").removeClass("active")
+        $('html').removeClass("scroll_lock")
+      })
     })
-    $(".BtnGnbClose").click(function() { //gnb 닫기
-      $(".gnb_container").removeClass("active")
-      $('html').removeClass("scroll_lock")
-    })
-  })
-</script><main class="p_main">
-  <section class="sec_visual">
+  </script> -->
+  <header class="head"> 
     <div class="com_center_wrap">
-      <h2 class="title">
-        <img src="https://bellal7.github.io/Branding/application/assets/img/visual_logo.png" alt="해처럼 빛나게!">
-      </h2>
-      <p class="sub_title">
-        해빛은 부모의 마음과 같은 사랑과 정성으로 <br />아이들과 함께하고 있습니다.
-      </p>
-      <button class="btn_scroll">
-        <img src="https://bellal7.github.io/Branding/application/assets/img/icon_scroll.png" alt="scroll">
-      </button>
+      <a href="index.html" class="logo"><h1><img src="https://bellal7.github.io/Branding/application/assets/img/logo.png" alt="로고"/></h1></a>
+      <button class="btn_bar BtnGnbOpen"><img src="https://bellal7.github.io/Branding/application/assets/img/icon_bar.png" alt="bar"/></button>
+      <div class="gnb_wrap">
+        <button class="btn_close BtnGnbColse"><img src="https://bellal7.github.io/Branding/application/assets/img/icon_del.png" alt="close"/></button>
+        <ul class="gnb">
+          <li class="depth1">
+            <a href="" class="menu">센터소개</a>
+            <button class="menu_open MenuOpen"><img src="https://bellal7.github.io/Branding/application/assets/img/icon_arrow_down.png" alt="down"/></button>
+            <ul class="depth2">
+              <li>
+                <a href="#" class="menu">인사말</a>
+                <a href="#" class="menu">선생님 소개</a>
+                <a href="#" class="menu">오시는길</a>
+                <a href="#" class="menu">시설사진</a>
+              </li>
+            </ul>
+          </li>
+          <li class="depth1">
+            <a href="#" class="menu">프로그램</a>
+          </li>
+          <li class="depth1">
+            <a href="#" class="menu GnbMenu">바우처안내</a>
+          </li>
+          <li class="depth1">
+            <a href="#" class="menu GnbMenu">검사안내</a>
+          </li>
+          <li class="depth1">
+            <a href="#" class="menu GnbMenu icon_blog"><img src="https://bellal7.github.io/Branding/application/assets/img/icon_blog.png" alt="blog"></a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </section>
-</main>
+  </header>
+  <script>
+    $(function(){
+      $('.BtnGnbOpen').click(function(){//gnb 노출
+        $('.gnb_wrap').addClass('active');
+        $('.head .logo').clone().prependTo('.gnb_wrap');
+        $('body').addClass('scroll_lock');
+      })
+      $('.BtnGnbColse').click(function(){//gnb 비노출
+        $('.gnb_wrap').removeClass('active');
+        $('body').removeClass('scroll_lock');
+      })
+      $('.MenuOpen').click(function(){//모바일 2depth 노출,비노출
+        $(this).siblings('.depth2').slideToggle('active');
+        $(this).toggleClass('active');
+      })
+      $(window).scroll(function(){ 
+        var height = $(document).scrollTop(); //실시간으로 스크롤의 높이를 측정
+        if(height > 0){ 
+          $('.head').addClass('fixed'); 
+        }else if(height == 0){ 
+          $('.head').removeClass('fixed'); 
+        } 
+      });
+    })
+  </script>
+
+  <main class="p_main">
+    <section class="sec_visual">
+      <div class="com_center_wrap">
+        <h2 class="title">
+          <img src="https://bellal7.github.io/Branding/application/assets/img/visual_logo.png" alt="해처럼 빛나게!">
+        </h2>
+        <p class="sub_title">
+          해빛은 부모의 마음과 같은 사랑과 정성으로 <br />아이들과 함께하고 있습니다.
+        </p>
+        <button class="btn_scroll">
+          <img src="https://bellal7.github.io/Branding/application/assets/img/icon_scroll.png" alt="scroll">
+        </button>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="footer_top">
